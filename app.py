@@ -1,0 +1,32 @@
+import os
+# Using Flask since Python doesn't have built-in session management
+from flask import Flask, session, render_template, request, jsonify
+# Our target library
+import requests
+import json
+from pathlib import Path
+from base64 import encodebytes
+from PIL import Image
+import io
+import numpy as np
+from torch import R
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "Welcome to dalleapi.com"
+
+@app.route('/generate', methods=['POST'])
+def generate():
+    if request.method == "POST":
+        input_json = request.get_json(force=True) 
+        print(input_json['image'])
+        return jsonify({
+            "task":"done"
+        })
+if __name__ == '__main__':
+    app.run(
+        host="0.0.0.0",
+        port=5000
+    )
