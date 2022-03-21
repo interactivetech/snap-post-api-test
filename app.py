@@ -9,7 +9,6 @@ from base64 import encodebytes
 from PIL import Image
 import io
 import numpy as np
-from torch import R
 
 app = Flask(__name__)
 
