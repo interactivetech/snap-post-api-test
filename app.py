@@ -23,7 +23,7 @@ def generate():
         print(len(input_json['image']))
         # print(input_json['image'])
         g = open("out.jpg", "wb")
-        g.write(b64decode(input_json['image'].encode('utf-8')))
+        g.write(decodebytes(bytes(input_json['image'].encode('utf-8'))))
         g.close()
 
         # s = json.loads(b64decode(input_json['image']))
