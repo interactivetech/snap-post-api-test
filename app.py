@@ -21,11 +21,15 @@ def generate():
     if request.method == "POST":
         input_json = request.get_json(force=True) 
         print(len(input_json['image']))
-        print(input_json['image'])
-        s = json.loads(b64decode(input_json['image']))
-        print(s)
-        # im = Image.open(io.BytesIO(s))
-        # print(im.size)
+        # print(input_json['image'])
+        g = open("out.jpg", "w")
+        g.write(b64decode(input_json['image']))
+        g.close()
+
+        # s = json.loads(b64decode(input_json['image']))
+        # print(s)
+        im = Image.open(io.BytesIO('out.jpg'))
+        print(im.size)
         return jsonify({
             "task":"done"
         })
