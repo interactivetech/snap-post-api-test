@@ -5,7 +5,7 @@ from flask import Flask, session, render_template, request, jsonify
 import requests
 import json
 from pathlib import Path
-from base64 import encodebytes, decodebytes, b64decode, decodestring
+from base64 import encodebytes, decodebytes, b64decode
 from PIL import Image
 import io
 import numpy as np
