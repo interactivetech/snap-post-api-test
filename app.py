@@ -20,8 +20,12 @@ def index():
 def generate():
     if request.method == "POST":
         input_json = request.get_json(force=True) 
-        print(len(input_json['image']))
+        s = input_json['image']
+        print(len(s))
         # print(input_json['image'])
+        # arr = []
+        # for i in range(len(s)):
+        #     arr.append(s[i])
         g = open("out.txt", "w")
         g.write(input_json['image'])
         g.close()
@@ -33,7 +37,7 @@ def generate():
         # im = Image.open('/home/ec2-user/snap-post-api-test/out.jpg')
         # print(im.size)
         return jsonify({
-            "task":"done"
+            "task":input_json['image']
         })
 if __name__ == '__main__':
     app.run(
