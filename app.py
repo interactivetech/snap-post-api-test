@@ -21,7 +21,7 @@ def generate():
     if request.method == "POST":
         input_json = request.get_json(force=True) 
         print(len(input_json['image']))
-        s = json.loads(b64decode(input_json['image']))
+        s = json.loads(b64decode(input_json['image']).encode('utf-8'))
         print(s)
         # im = Image.open(io.BytesIO(s))
         # print(im.size)
