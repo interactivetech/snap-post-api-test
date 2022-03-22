@@ -28,7 +28,7 @@ def generate():
 
         # s = json.loads(b64decode(input_json['image']))
         # print(s)
-        im = Image.open(io.BytesIO('out.jpg'))
+        im = Image.open('out.jpg')
         print(im.size)
         return jsonify({
             "task":"done"
