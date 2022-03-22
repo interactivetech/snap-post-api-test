@@ -5,7 +5,7 @@ from flask import Flask, session, render_template, request, jsonify
 import requests
 import json
 from pathlib import Path
-from base64 import encodebytes, decodebytes, b64decode
+from base64 import encodebytes, decodebytes, b64decode, decodestring
 from PIL import Image
 import io
 import numpy as np
@@ -23,7 +23,7 @@ def generate():
         print(len(input_json['image']))
         # print(input_json['image'])
         g = open("out.jpg", "w")
-        g.write(b64decode(input_json['image']))
+        g.write(decodebytes(input_json['image']))
         g.close()
 
         # s = json.loads(b64decode(input_json['image']))
