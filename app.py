@@ -23,7 +23,7 @@ def generate():
         print(len(input_json['image']))
         # print(input_json['image'])
         g = open("out.txt", "w")
-        g,write(input_json['image'])
+        g.write(input_json['image'])
         g.close()
         # g.write(decodebytes(bytes(input_json['image'].encode('utf-8'))))
         # g.close()
