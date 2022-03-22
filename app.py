@@ -5,7 +5,7 @@ from flask import Flask, session, render_template, request, jsonify
 import requests
 import json
 from pathlib import Path
-from base64 import encodebytes
+from base64 import encodebytes, decodebytes, b64decode
 from PIL import Image
 import io
 import numpy as np
@@ -20,7 +20,7 @@ def index():
 def generate():
     if request.method == "POST":
         input_json = request.get_json(force=True) 
-        print(input_json['image'])
+        print(b64decode(input_json['image']))
         return jsonify({
             "task":"done"
         })
