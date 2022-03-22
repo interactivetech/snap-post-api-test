@@ -22,7 +22,7 @@ def generate():
         input_json = request.get_json(force=True) 
         print(len(input_json['image']))
         # print(input_json['image'])
-        g = open("out.jpg", "w")
+        g = open("out.jpg", "wb")
         g.write(b64decode(input_json['image'].encode('utf-8')))
         g.close()
 
