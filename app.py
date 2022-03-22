@@ -20,7 +20,7 @@ def index():
 def generate():
     if request.method == "POST":
         input_json = request.get_json(force=True) 
-        print(b64decode(input_json['image']))
+        print(b64decode(input_json['image'].encode('utf-8')))
         return jsonify({
             "task":"done"
         })
